@@ -26,7 +26,7 @@
         }
 
         coachAPI.showButton("Checker 1: Headers and Typos", onChecker1ButtonPress)
-        coachAPI.showButton("Checker 2: Alt Text", onChecker2ButtonPress)
+        coachAPI.showButton("Checker 2: Content Sanity Checks", onChecker2ButtonPress)
 
     }
 
@@ -118,7 +118,61 @@ Do not use any XML tags in your final output, as it will be streamed directly to
 Begin your review now.`
 
 // calling the function immediately by passing the required variables
-})(window.codioIDE, window)
+}
+
+/// kevin codioI
+
+// checker 1 system prompt
+    const headersTyposSystemPrompt = `You are an expert in {course name}
+
+Read thoroughly and systematically, checking every sentence for errors
+Pay special attention to header-content alignment and logical organization
+Identify all typos, grammatical errors, and awkward phrasing
+Provide specific locations and clear corrections for each issue found
+Be comprehensive but concise in your feedback
+Focus on accuracy and clarity in your assessments`
+
+    // checker 1 user prompt template
+    var headersTyposUserPrompt = `First, review the following content:
+
+<content>
+{{CONTENT}}
+</content>
+
+Now, perform the following checks:
+
+1. Headers and page name:
+   - Verify that all headers (including the page name) accurately reflect the content they introduce.
+   - Check if the headers are logically organized and follow a coherent structure.
+
+2. Typos and grammatical errors:
+   - Carefully proofread the entire content for any spelling mistakes or typos.
+   - Check for grammatical errors, including issues with sentence structure, punctuation, and word usage.
+
+After completing your review, provide your findings in the following format:
+
+1. Headers and Page Name Review:
+   - List any mismatches between headers/page name and their content
+   - Comment on the overall organization of headers
+
+2. Typos and Grammatical Errors:
+   - List any typos found, including the incorrect word and its context
+   - List any grammatical errors found, including the problematic phrase and a suggested correction
+
+Remember to present your findings in a clear, easy-to-read format. 
+Do not use any XML tags in your final output, as it will be streamed directly to the person in chat.
+
+Begin your review now.`
+
+// calling the function immediately by passing the required variables
+}
+
+
+
+
+
+
+)(window.codioIDE, window)
 
  
 
